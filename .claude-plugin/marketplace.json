@@ -16,6 +16,16 @@
       "category": "monitoring",
       "source": "./plugins/claude-hud",
       "homepage": "https://github.com/jarrodwatts/claude-hud"
+    },
+    {
+      "name": "auto-fix",
+      "description": "Auto-fix GitHub issues with a fix/review loop across two different models. Opens a draft PR and never merges; stops after 3 rounds and hands off to a human.",
+      "version": "0.1.0",
+      "author": {
+        "name": "glacierzzz26"
+      },
+      "category": "automation",
+      "source": "./plugins/auto-fix"
     }
   ]
 }
