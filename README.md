@@ -36,6 +36,12 @@ Rebuild after editing `src/`:
 cd plugins/claude-hud && npm install && npm run build
 ```
 
+### auto-fix
+
+两个模型处理一个 GitHub issue:一个修,一个**不同的**模型审,最多 3 轮。如果双方达成一致且项目测试通过,就发起一个**草稿** PR。它永不 merge —— 由人来 merge。可本地运行(`/auto-fix:fix-issue <n>`),也可在 GitHub Actions 中运行(给 issue 打上 `auto-fix` 标签),适用于任何语言的仓库。
+
+完整说明、配置和安全模型见 [`plugins/auto-fix/README.md`](plugins/auto-fix/README.md)。
+
 ## Use this marketplace
 
 ```
@@ -52,12 +58,6 @@ Refresh the catalog after changing `marketplace.json`:
 ```bash
 claude plugin marketplace update my-plugins
 ```
-
-### auto-fix
-
-两个模型处理一个 GitHub issue:一个修,一个**不同的**模型审,最多 3 轮。如果双方达成一致且项目测试通过,就发起一个**草稿** PR。它永不 merge —— 由人来 merge。可本地运行(`/auto-fix:fix-issue <n>`),也可在 GitHub Actions 中运行(给 issue 打上 `auto-fix` 标签),适用于任何语言的仓库。
-
-完整说明、配置和安全模型见 [`plugins/auto-fix/README.md`](plugins/auto-fix/README.md)。
 
 ## Note on `dist/`
 

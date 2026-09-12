@@ -127,9 +127,13 @@ fixer 和 reviewer 必须解析到**不同的模型 id**。如果相同,运行�
 /auto-fix:fix-issue 123             # 修复 issue 123 并开草稿 PR
 /auto-fix:fix-issue 123 --dry-run   # 打印计划,不花任何 token
 /auto-fix:fix-issue 123 --no-pr     # 离线运行;推送并打印,不开 PR
+/auto-fix:fix-issue 123 --in-place  # 直接在当前 checkout 上改(默认用隔离 worktree)
+/auto-fix:fix-issue 123 --max-rounds 2   # 覆盖契约里的轮次上限(仍被钳制到 1..3)
 /auto-fix:fix-status                # 什么在跑 / 发生了什么
 /auto-fix:fix-summary               # 各阶段耗时、token 和成本
 ```
+
+本地运行时**默认在临时 git worktree 里工作**,所以你自己 checkout 里的文件不会被碰到;`--in-place` 才直接改当前工作区(工作区有未提交改动时会自动回退到 worktree)。CI 中永远在 checkout 上就地运行。
 
 CI 中:给 issue 打上 **`auto-fix`** 标签。workflow 只在这个标签上触发 —— 这也正是插件自己打的标签不会再次触发它的原因。
 
