@@ -1,0 +1,16 @@
+{
+  "name": "auto-fix",
+  "description": "Auto-fix GitHub issues with a fix/review loop across two different models. Opens a draft PR; never merges.",
+  "version": "0.1.0",
+  "author": {
+    "name": "glacierzzz26"
+  },
+  "commands": [
+    "./commands/fix-issue.md",
+    "./commands/fix-init.md",
+    "./commands/fix-status.md",
+    "./commands/fix-summary.md"
+  ],
+  "license": "MIT",
+  "keywords": ["automation", "github", "issues", "review", "ci", "agent-loop"]
+}

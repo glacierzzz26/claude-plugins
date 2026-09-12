@@ -1,0 +1,36 @@
+# USD per 1,000,000 tokens. Owned by the plugin and versioned here.
+#
+# The `claude` CLI reports `total_cost_usd` with `costBasis = "unknown"` for
+# third-party gateway models, using a built-in table that is wrong for them.
+# The plugin therefore never uses that field for cost; it records the raw token
+# counters and multiplies by the rates below.
+#
+# Add a block per model you actually use. A model missing here is reported as
+# "unpriced" in `auto-fix summary` — its tokens are still counted.
+
+version = "2026-09-01"
+
+[models."claude-opus-5"]
+input = 5.00
+output = 25.00
+cache_read = 0.50
+cache_write = 6.25
+
+[models."claude-sonnet-5"]
+input = 2.00
+output = 10.00
+cache_read = 0.20
+cache_write = 2.50
+
+[models."claude-haiku-4-5"]
+input = 1.00
+output = 5.00
+cache_read = 0.10
+cache_write = 1.25
+
+# Example: a third-party gateway model. Set the real rates for yours.
+# [models."deepseek/deepseek-v4.1-flash"]
+# input = 0.14
+# output = 0.28
+# cache_read = 0.014
+# cache_write = 0.14
